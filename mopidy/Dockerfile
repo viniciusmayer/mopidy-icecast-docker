@@ -10,12 +10,8 @@ RUN wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/bullse
 RUN apt-get update
 RUN apt-get install -y mopidy mopidy-tunein mopidy-mpd mpc
 
-RUN git clone https://github.com/jaedb/Iris.git
-RUN cd Iris
-RUN python3 setup.py install
-RUN cd ..
-
-RUN echo "mopidy ALL=NOPASSWD: /usr/local/lib/python3.7/dist-packages/Mopidy_Iris-3.44.0-py3.7.egg/mopidy_iris/system.sh" >> /etc/sudoers
+RUN python3 -m pip install Mopidy-Iris
+RUN echo echo "mopidy  ALL=NOPASSWD:   /usr/local/lib/python3.7/dist-packages/mopidy_iris/system.sh" >> /etc/sudoers
 
 RUN chown mopidy:audio -R /var/lib/mopidy/.config
 
