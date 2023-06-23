@@ -1,11 +1,7 @@
+FROM debian:11-slim
 
-FROM debian:stretch
-
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get -qq -y update && \
-    apt-get -qq -y install icecast2 python-setuptools sudo && \
-    apt-get clean
+RUN apt-get -y update
+RUN apt-get -y install icecast2 python-setuptools sudo
 
 COPY "icecast.xml" "/usr/share/icecast2/icecast.xml"
 COPY "silence.mp3" "/usr/share/icecast2/web/silence.mp3"
