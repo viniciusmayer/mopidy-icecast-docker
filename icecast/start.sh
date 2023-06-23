@@ -20,4 +20,4 @@ if [ -n "$ICECAST_PASSWORD" ]; then
     sed -i "s/<password>[^<]*<\/password>/<password>$ICECAST_PASSWORD<\/password>/g" /usr/share/icecast2/icecast.xml
 fi
 
-sudo -Eu icecast2 icecast2 -n -c /usr/share/icecast2/icecast.xml
+icecast2 icecast2 -n -c /usr/share/icecast2/icecast.xml
