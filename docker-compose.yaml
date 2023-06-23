@@ -7,7 +7,6 @@ services:
       context: mopidy/
     command: mopidy
     ports:
-     - 6600:6600
      - 6680:6680
     depends_on:
       - icecast
@@ -15,10 +14,5 @@ services:
   icecast:
     build:
       context: icecast/
-    environment:
-      - ICECAST_SOURCE_PASSWORD=mopidy
-      - ICECAST_ADMIN_PASSWORD=mopidy
-      - ICECAST_PASSWORD=mopidy
-      - ICECAST_RELAY_PASSWORD=mopidy
     ports:
     - 8000:8000
