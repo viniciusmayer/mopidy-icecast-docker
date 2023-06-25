@@ -1,7 +1,7 @@
-FROM debian:11-slim
+FROM debian:bullseye-slim
 
 RUN apt-get -y update
-RUN apt-get -y install icecast2
+RUN apt-get -y install icecast2 sudo
 
 COPY "icecast.xml" "/usr/share/icecast2/icecast.xml"
 COPY "silence.mp3" "/usr/share/icecast2/web/silence.mp3"
